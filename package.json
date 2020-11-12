@@ -1,0 +1,10 @@
+{
+  "name": "telewave",
+  "version": "1.0.0",
+  "repository": "git@github.com:alexisloiselle/telewave.git",
+  "author": "Alexis Loiselle <alexis@t-b.ca>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "pug . && git commit -m \"Deployment\" && git push -f"
+  }
+}
