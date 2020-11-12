@@ -8,7 +8,6 @@ html(lang="en")
     meta(name="description" content="Telewave")
     meta(name="author" content="Gus")
     link(rel="stylesheet" href="../styles/styles.css?v=1.0")
-    script(src="translations.js")
 
   body
     div
@@ -51,7 +50,8 @@ html(lang="en")
 
     script(src="../scripts/jquery-3.4.1.min.js")
     script(src="../scripts/seedrandom.js")
-    script(src="../scripts/data.js")
+    script(src="translations.js")
+    block lang
 
     - let canvasWidth = 1772;
 
@@ -120,4 +120,3 @@ html(lang="en")
 
     script(src="../scripts/board.js")
     script(src="../scripts/draw.js")
-    block lang
