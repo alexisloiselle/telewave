@@ -1,0 +1,123 @@
+doctype html
+
+html(lang="en")
+  head
+    meta(charset="utf-8")
+
+    title Telewave
+    meta(name="description" content="Telewave")
+    meta(name="author" content="Gus")
+    link(rel="stylesheet" href="../styles/styles.css?v=1.0")
+    script(src="translations.js")
+
+  body
+    div
+      #header
+        .seed-container
+          span.label Seed
+          input(type="text" id="seed" placeholder="seed" size="8" autofocus)
+          input(
+            type="image"
+            onclick="copySeedUrl()"
+            src="../img/clipboard-copy-512.png"
+            alt="Copy link with seed"
+            width="24px"
+            height="24px"
+          )
+        button(id="new" onclick="update_seed()") New clue
+        button(id="commit" onclick="button_guess()") Guess
+        button(id="reveal" onclick="button_peek()") Peek
+        button(id="reset" onclick="button_clear()") Clear
+        .percentages-container
+          span.label#percentagesText Percentage
+          input(
+            type="checkbox"
+            id="percentages"
+            checked
+            onclick="update_percentages()"
+          )
+
+        block instructions
+          a(href="instructions") Instructions
+
+        a(href="../lang/langs")
+          img(
+            src="../lang/icons/translation.png"
+            alt="Other languages"
+            width="36px"
+            height="36px"
+          )
+
+
+    script(src="../scripts/jquery-3.4.1.min.js")
+    script(src="../scripts/seedrandom.js")
+    script(src="../scripts/data.js")
+
+    - let canvasWidth = 1772;
+
+    canvas(
+      id="wave"
+      width=canvasWidth
+      height="150"
+      style="border: 5px solid #d3d3d3;"
+    )
+
+    div.slidecontainer
+      input.slider#guesser(
+        type="range"
+        min="0"
+        max=canvasWidth
+        value=canvasWidth/2
+        oninput="guessdisp.value = Math.round(guesser.value/" + canvasWidth + "*100)"
+      )
+      output#guessdisp 50
+
+    #board
+    #score
+    #scoreboard
+      .divTable.scoreboard
+        .divTableBody
+          .divTableRow
+            .divTableCell Team 1
+              div
+                button(
+                  type="button"
+                  onclick="this.parentNode.querySelector('[type=number]').stepDown();"
+                ) -
+
+                input(
+                  type="number"
+                  name="number"
+                  min="0"
+                  max="100"
+                  value="0"
+                )
+
+                button(
+                  type="button"
+                  onclick="this.parentNode.querySelector('[type=number]').stepUp();"
+                ) +
+
+            .divTableCell Team 2
+              div
+                button(
+                  type="button"
+                  onclick="this.parentNode.querySelector('[type=number]').stepDown();"
+                ) -
+
+                input(
+                  type="number"
+                  name="number"
+                  min="0"
+                  max="100"
+                  value="0"
+                )
+
+                button(
+                  type="button"
+                  onclick="this.parentNode.querySelector('[type=number]').stepUp();"
+                ) +
+
+    script(src="../scripts/board.js")
+    script(src="../scripts/draw.js")
+    block lang

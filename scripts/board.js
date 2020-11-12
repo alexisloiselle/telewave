@@ -1,3 +1,4 @@
+const canvasWidth = document.getElementById("wave").width;
 const urlParams = new URLSearchParams(window.location.search);
 
 if (urlParams.get("seed")) {
@@ -28,7 +29,7 @@ function fire() {
   //get seed and set the seed for randomizer
   var seed = document.getElementById("seed").value;
   Math.seedrandom(seed.toLowerCase());
-  randpos = Math.random() * 1000;
+  randpos = Math.random() * canvasWidth;
 
   var randomNumber = Math.floor(Math.random() * data.length);
   var words = data[randomNumber];
@@ -41,8 +42,6 @@ function fire() {
     "</td><td> &#10230 <br />" +
     words[1] +
     "</td></tr></tbody></table></center>";
-
-  gtag("event", "fire");
 }
 
 //enable pressing 'Enter' on seed field
@@ -60,7 +59,6 @@ function copySeedUrl() {
   var seed = document.getElementById("seed").value;
   const seedUrl = `${window.location.origin}${window.location.pathname}?seed=${seed}`;
   copyStringToClipboard(seedUrl);
-  gtag("event", "copy_seed");
 }
 
 function copyStringToClipboard(str) {

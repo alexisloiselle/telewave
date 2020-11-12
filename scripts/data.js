@@ -1,4 +1,4 @@
-var data = [
+let data = [
   ["Bad", "Good"],
   ["Mildly addictive", "Highly addictive"],
   ["Hot", "Cold"],
