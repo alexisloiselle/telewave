@@ -27,14 +27,6 @@ html(lang="en")
         button(id="commit" onclick="button_guess()") Guess
         button(id="reveal" onclick="button_peek()") Peek
         button(id="reset" onclick="button_clear()") Clear
-        .percentages-container
-          span.label#percentagesText Percentage
-          input(
-            type="checkbox"
-            id="percentages"
-            checked
-            onclick="update_percentages()"
-          )
 
         block instructions
           a(href="instructions") Instructions
@@ -68,9 +60,7 @@ html(lang="en")
         min="0"
         max=canvasWidth
         value=canvasWidth/2
-        oninput="guessdisp.value = Math.round(guesser.value/" + canvasWidth + "*100)"
       )
-      output#guessdisp 50
 
     #board
     #score
