@@ -5,6 +5,6 @@
   "author": "Alexis Loiselle <alexis@t-b.ca>",
   "license": "MIT",
   "scripts": {
-    "deploy": "pug . && git commit -m \"Deployment\" && git push -f"
+    "deploy": "pug . && git push -f"
   }
 }
